@@ -203,21 +203,48 @@ public class BoardTest {
     /**
      * Test of print method, of class Board.
     */
+    /*@Test
+    public void testPrint1() {
+        System.out.println("Testing print: empty board");
+        //simIO.captureOutput();
+        //board.print();
+        String expectedOutput = "\n" + ".-----:-----:-----." + "\n"
+                                     + "|     |     |     |" + "\n"
+                                     + "|-----|-----|-----|" + "\n" 
+                                     + "|     |     |     |" + "\n"
+                                     + "|-----|-----|-----|" + "\n"
+                                     + "|     |     |     |" + "\n"
+                                     + ".-----:-----:-----." + "\n";
+        
+        assertEquals(expectedOutput, board.print());
+        //simIO.restoreOutput();
+    }
+    @Test
+    public void testPrint2() {
+        System.out.println("Testing print: non-empty board");
+        //simIO.captureOutput();
+        board.makeMove(new Move(1,1), 'X');
+        board.makeMove(new Move(2,2), 'O');
+        
+        String expectedOutput = "\n" + ".-----:-----:-----." + "\n"
+                                     + "|  X  |     |     |" + "\n"
+                                     + "|-----|-----|-----|" + "\n" 
+                                     + "|     |  O  |     |" + "\n"
+                                     + "|-----|-----|-----|" + "\n"
+                                     + "|     |     |     |" + "\n"
+                                     + ".-----:-----:-----." + "\n";
+        
+        assertEquals(expectedOutput, board.print());
+        //simIO.restoreOutput();
+    }*/
+
     @Test
     public void testPrint1() {
         System.out.println("Testing print: empty board");
         simIO.captureOutput();
         board.print();
-        String expectedOutput = "\n ----- ----- -----\n"
-                                + "|     |     |     |\n"
-                                + "|-----|-----|-----|\n"
-                                + "|     |     |     |\n"
-                                + "|-----|-----|-----|\n"
-                                + "|     |     |     |\n"
-                                + " ----- ----- -----\n";
-        System.out.println(expectedOutput);
-        System.out.println(expectedOutput);
-        assertEquals(expectedOutput, simIO.getCapturedOutput());
+        String expectedOutput = "┌───┬───┬───┐\n│   │   │   │ \n├───┼───┼───┤\n│   │   │   │ \n├───┼───┼───┤\n│   │   │   │ \n└───┴───┴───┘";
+        assertEquals(expectedOutput, simIO.getCapturedOutput().trim());
         simIO.restoreOutput();
     }
     @Test
@@ -227,16 +254,8 @@ public class BoardTest {
         board.makeMove(new Move(1,1), 'X');
         board.makeMove(new Move(2,2), 'O');
         board.print();
-        String expectedOutput = "\n ----- ----- -----\n"
-                                + "|     |     |     |\n"
-                                + "|-----|-----|-----|\n"
-                                + "|     |     |     |\n"
-                                + "|-----|-----|-----|\n"
-                                + "|     |     |     |\n"
-                                + " ----- ----- -----\n";
-        System.out.println(expectedOutput);
-        System.out.println(expectedOutput);
-        assertEquals(expectedOutput, simIO.getCapturedOutput());
+        String expectedOutput = "┌───┬───┬───┐\n│ X │   │   │ \n├───┼───┼───┤\n│   │ O │   │ \n├───┼───┼───┤\n│   │   │   │ \n└───┴───┴───┘";
+        assertEquals(expectedOutput, simIO.getCapturedOutput().trim());
         simIO.restoreOutput();
     }
 }
